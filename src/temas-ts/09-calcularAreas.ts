@@ -26,18 +26,12 @@ export class CalcularAreas{
 
     AreaCuadrado(){
         this.area = this.lado * this.lado;
-        console.log(`El area del Rectangulo es: ${this.area}`)
+        console.log(`El area del Cuadrado es: ${this.area}`)
     }
 
     AreaCirculo(){
         this.area = 3.1416 * (this.radio * this.radio);
-        console.log(`El area del Rectangulo es: ${this.area}`)
+        console.log(`El area del Circulo es: ${this.area}`)
     }
 
 }
-
-const calcular = new CalcularAreas (10,10,10,10,0)
-calcular.imprimirMedidas();
-calcular.AreaRect();
-calcular.AreaCuadrado();
-calcular.AreaCirculo();

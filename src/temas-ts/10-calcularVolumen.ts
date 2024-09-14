@@ -3,37 +3,47 @@ import { CalcularAreas } from "./09-calcularAreas";
 
 class CalcularVolumen extends CalcularAreas{
     protected volumen:number;
+    protected ancho:number;
+    protected alturaCilindro:number;
 
-    constructor(base:number, altura:number, lado:number, radio:number, area:number, volumen:number){
+    constructor(base:number, altura:number, lado:number, radio:number, area:number, volumen:number, ancho:number, alturaCilindro:number){
         super(base,altura,lado,radio,area)
         this.volumen = volumen;
+        this.ancho = ancho;
+        this.alturaCilindro = alturaCilindro;
     }
 
-    imprimirAreas(){
-        console.log(" Area Rectangulo = "+ this.AreaRect());
-        console.log(" Area Cuadrado =  "+ this.AreaCuadrado());
-        console.log(" Area Circulo =  "+ this.AreaCirculo());
+    imprimirmedidas2(){
+        console.log(" Ancho Rectangulo = "+this.ancho);
+        console.log(" Lado Cuadrado = "+ this.lado);
+        console.log(" Altura Cilindro = "+ this.alturaCilindro);
     }
 
     VolumenRect(){
-        this.volumen = this.area;
-        console.log(`El volumen del Rectangulo es: ${this.area}`)
+        this.AreaRect();
+        this.volumen = this.area * this.ancho;
+        console.log(`El volumen del Rectangulo es: ${this.volumen}`)
     }
 
     VolumenCuadrado(){
-        this.volumen = this.lado * this.lado;
-        console.log(`El area del Rectangulo es: ${this.area}`)
+        this.AreaCuadrado();
+        this.volumen = this.area * this.lado;
+        console.log(`El volumen del Cubo es: ${this.volumen}`)
     }
 
     VolumenCirculo(){
-        this.volumen = 3.1416 * (this.radio * this.radio);
-        console.log(`El area del Rectangulo es: ${this.area}`)
+        this.AreaCirculo();
+        this.volumen = this.area * this.alturaCilindro;
+        console.log(`El volumen del Cilindro es: ${this.volumen}`)
     }
 
 }
 
-const calcular = new CalcularAreas (10,10,10,10,0)
-calcular.imprimirMedidas();
-calcular.AreaRect();
-calcular.AreaCuadrado();
-calcular.AreaCirculo();
+
+const volumen = new CalcularVolumen (10,5,10,10,0,0,10,5)
+
+volumen.imprimirMedidas();
+volumen.imprimirmedidas2();
+volumen.VolumenRect();
+volumen.VolumenCuadrado();
+volumen.VolumenCirculo();
